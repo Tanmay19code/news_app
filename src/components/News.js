@@ -32,7 +32,7 @@ const News = (props) => {
 
   useEffect(() => {
     document.title =
-      "NewsMonkey - " + capitalizeFirstLetter(props.category);
+      "News - " + capitalizeFirstLetter(props.category);
     updateNews();
   }, []);
 
@@ -54,7 +54,7 @@ const News = (props) => {
     <>
       {/* <div className="container my-3"> */}
       <h1 className="text-center " style={{ marginBottom: "30px", marginTop: "90px" }}>
-        NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines
+        Top {capitalizeFirstLetter(props.category)} Headlines
       </h1>
 
       {loading && <Spinner />}
