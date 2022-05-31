@@ -5,11 +5,12 @@ import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const News = (props) => {
+  let titleColor;
+
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -18,7 +19,7 @@ const News = (props) => {
   const updateNews = async () => {
     props.setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
-    setLoading(true)
+    setLoading(true);
     let data = await fetch(url);
     props.setProgress(30);
     let parsedData = await data.json();
@@ -31,16 +32,22 @@ const News = (props) => {
   };
 
   useEffect(() => {
-    document.title =
-      "News - " + capitalizeFirstLetter(props.category);
+    document.title = "News - " + capitalizeFirstLetter(props.category);
     updateNews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  titleColor = props.styleObj.titleColor;
+
+  console.log(titleColor);
 
   const fetchMoreData = async () => {
-    
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
-    setPage(page+1)
+    const url = `https://newsapi.org/v2/top-headlines?country=${
+      props.country
+    }&category=${props.category}&apiKey=${props.apiKey}&page=${
+      page + 1
+    }&pageSize=${props.pageSize}`;
+    setPage(page + 1);
     // this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -53,7 +60,14 @@ const News = (props) => {
   return (
     <>
       {/* <div className="container my-3"> */}
-      <h1 className="text-center " style={{ marginBottom: "30px", marginTop: "90px" }}>
+      <h1
+        className="text-center "
+        style={{
+          marginBottom: "30px",
+          marginTop: "90px",
+          color: `${titleColor}`,
+        }}
+      >
         Top {capitalizeFirstLetter(props.category)} Headlines
       </h1>
 
@@ -72,6 +86,7 @@ const News = (props) => {
                 return (
                   <div className="col-md-4" key={element.url}>
                     <NewsItem
+                      styleObj={props.styleObj}
                       title={element.title ? element.title : ""}
                       description={
                         element.description
