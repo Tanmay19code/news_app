@@ -20,9 +20,10 @@ const App = () => {
     backgroundColor: "#042743",
     cardHolder: "#064663",
     cardTextHolder: "#fff",
-    cardTextDesc:"#FEF9A7",
+    cardTextDesc: "#FEF9A7",
     buttonHolder: "#04293A",
     titleColor: "#ECB365",
+    authorTextColor: "#B1D0E0",
   };
 
   const lightStyleObj = {
@@ -31,8 +32,9 @@ const App = () => {
     cardHolder: "#ffffff",
     cardTextHolder: "#406882",
     buttonHolder: "#ECB365",
-    cardTextDesc:"#000",
+    cardTextDesc: "#000",
     titleColor: "#212529",
+    authorTextColor: "#000",
   };
 
   const toggleMode = () => {
@@ -44,6 +46,7 @@ const App = () => {
       document.body.style.backgroundColor = "#042743";
     }
   };
+
   return (
     <div>
       <Router>

@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Navbar = ({ darkMode, toggleMode }) => {
   const location = useLocation();
-  console.log(darkMode);
+  // console.log(darkMode);
   return (
     <div>
       <nav
