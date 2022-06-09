@@ -11,7 +11,7 @@ const NewsItem = (props) => {
     source,
     styleObj,
   } = props;
-  console.log(styleObj);
+  // console.log(styleObj);
   return (
     <div className="my-3">
       <div
