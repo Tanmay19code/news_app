@@ -85,6 +85,9 @@ const News = (props) => {
                 return (
                   <div className="col-md-4" key={element.url}>
                     <NewsItem
+                    globalEffectVar={props.globalEffectVar}
+                    setGlobalEffectVar={props.setGlobalEffectVar}
+                      darkMode={props.darkMode}
                       styleObj={props.styleObj}
                       title={element.title ? element.title : ""}
                       description={

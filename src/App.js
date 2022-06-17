@@ -5,10 +5,19 @@ import News from "./components/News";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
+import store from "./redux/store";
+import LoginPage from "./components/LoginPage";
+import RegisterPage from "./components/RegisterPage";
+import BookmarkPage from "./components/BookmarkPage";
+
 const App = () => {
+  let globalState = store.getState();
+  let isAuthenticated = globalState.auth.isAuthenticated;
+  const [globalEffectVar, setGlobalEffectVar] = useState(false);
+
   const pageSize = 9;
   // const apiKey = process.env.REACT_APP_NEWS_API;
-  const apiKey = '0edc689c296c4e9991b8b37752686719'
+  const apiKey = "0edc689c296c4e9991b8b37752686719";
   const [progress, setProgress] = useState(0);
   const [darkMode, setDarkMode] = useState(true);
   useEffect(() => {
@@ -54,6 +63,9 @@ const App = () => {
           styleObj={darkMode ? darkStyleObj : lightStyleObj}
           darkMode={darkMode}
           toggleMode={toggleMode}
+          isAuthenticated={isAuthenticated}
+          setGlobalEffectVar={setGlobalEffectVar}
+          globalEffectVar={globalEffectVar}
         />
         <LoadingBar
           color="#f11946"
@@ -62,6 +74,20 @@ const App = () => {
           onLoaderFinished={() => setProgress(0)}
         />
         <Switch>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+          <Route exact path="/register">
+            <RegisterPage />
+          </Route>
+          <Route exact path="/bookmarks">
+            <BookmarkPage
+              darkMode={darkMode}
+              styleObj={darkMode ? darkStyleObj : lightStyleObj}
+              globalEffectVar={globalEffectVar}
+              setGlobalEffectVar={setGlobalEffectVar}
+            />
+          </Route>
           <Route exact path="/">
             <News
               setProgress={setProgress}
@@ -72,6 +98,8 @@ const App = () => {
               category="general"
               darkMode={darkMode}
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
+              globalEffectVar={globalEffectVar}
+              setGlobalEffectVar={setGlobalEffectVar}
             />
           </Route>
           <Route key="business" exact path="/business">
@@ -83,6 +111,8 @@ const App = () => {
               category="business"
               darkMode={darkMode}
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
+              globalEffectVar={globalEffectVar}
+              setGlobalEffectVar={setGlobalEffectVar}
             />
           </Route>
           <Route key="entertainment" exact path="/entertainment">
@@ -94,6 +124,8 @@ const App = () => {
               category="entertainment"
               darkMode={darkMode}
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
+              globalEffectVar={globalEffectVar}
+              setGlobalEffectVar={setGlobalEffectVar}
             />
           </Route>
           <Route key="general" exact path="/general">
@@ -105,6 +137,8 @@ const App = () => {
               category="general"
               darkMode={darkMode}
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
+              globalEffectVar={globalEffectVar}
+              setGlobalEffectVar={setGlobalEffectVar}
             />
           </Route>
           <Route key="health" exact path="/health">
@@ -116,6 +150,8 @@ const App = () => {
               category="health"
               darkMode={darkMode}
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
+              globalEffectVar={globalEffectVar}
+              setGlobalEffectVar={setGlobalEffectVar}
             />
           </Route>
           <Route key="science" exact path="/science">
@@ -127,6 +163,8 @@ const App = () => {
               category="science"
               darkMode={darkMode}
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
+              globalEffectVar={globalEffectVar}
+              setGlobalEffectVar={setGlobalEffectVar}
             />
           </Route>
           <Route key="general" exact path="/sports">
@@ -138,6 +176,8 @@ const App = () => {
               category="sports"
               darkMode={darkMode}
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
+              globalEffectVar={globalEffectVar}
+              setGlobalEffectVar={setGlobalEffectVar}
             />
           </Route>
           <Route key="technology" exact path="/technology">
@@ -149,6 +189,8 @@ const App = () => {
               category="technology"
               darkMode={darkMode}
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
+              globalEffectVar={globalEffectVar}
+              setGlobalEffectVar={setGlobalEffectVar}
             />
           </Route>
         </Switch>
