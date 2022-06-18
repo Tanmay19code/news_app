@@ -72,7 +72,7 @@ const BookmarkPage = (props) => {
                       }
                       imageUrl={
                         element?.img
-                          ? element.imageUrl
+                          ? element.img
                           : "http://www.macedonrangeshalls.com.au/wp-content/uploads/2017/10/image-not-found.png"
                       }
                       newsUrl={element.url}

@@ -143,14 +143,14 @@ const NewsItem = (props) => {
           >
             Read More
           </a>
-          <img
+         {props.isAuthenticated&& <img
             onClick={() => {
               handleBookMark();
             }}
             className="bookmark-img"
             src={isBookmarked ? bookmarkedImg : unBookmarkedImg}
             alt=""
-          />
+          />}
         </div>
       </div>
     </div>

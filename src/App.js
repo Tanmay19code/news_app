@@ -86,6 +86,7 @@ const App = () => {
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
               globalEffectVar={globalEffectVar}
               setGlobalEffectVar={setGlobalEffectVar}
+              isAuthenticated={isAuthenticated}
             />
           </Route>
           <Route exact path="/">
@@ -100,6 +101,7 @@ const App = () => {
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
               globalEffectVar={globalEffectVar}
               setGlobalEffectVar={setGlobalEffectVar}
+              isAuthenticated={isAuthenticated}
             />
           </Route>
           <Route key="business" exact path="/business">
@@ -113,6 +115,7 @@ const App = () => {
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
               globalEffectVar={globalEffectVar}
               setGlobalEffectVar={setGlobalEffectVar}
+              isAuthenticated={isAuthenticated}
             />
           </Route>
           <Route key="entertainment" exact path="/entertainment">
@@ -126,6 +129,7 @@ const App = () => {
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
               globalEffectVar={globalEffectVar}
               setGlobalEffectVar={setGlobalEffectVar}
+              isAuthenticated={isAuthenticated}
             />
           </Route>
           <Route key="general" exact path="/general">
@@ -139,6 +143,7 @@ const App = () => {
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
               globalEffectVar={globalEffectVar}
               setGlobalEffectVar={setGlobalEffectVar}
+              isAuthenticated={isAuthenticated}
             />
           </Route>
           <Route key="health" exact path="/health">
@@ -151,6 +156,7 @@ const App = () => {
               darkMode={darkMode}
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
               globalEffectVar={globalEffectVar}
+              isAuthenticated={isAuthenticated}
               setGlobalEffectVar={setGlobalEffectVar}
             />
           </Route>
@@ -165,6 +171,7 @@ const App = () => {
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
               globalEffectVar={globalEffectVar}
               setGlobalEffectVar={setGlobalEffectVar}
+              isAuthenticated={isAuthenticated}
             />
           </Route>
           <Route key="general" exact path="/sports">
@@ -178,6 +185,7 @@ const App = () => {
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
               globalEffectVar={globalEffectVar}
               setGlobalEffectVar={setGlobalEffectVar}
+              isAuthenticated={isAuthenticated}
             />
           </Route>
           <Route key="technology" exact path="/technology">
@@ -191,6 +199,7 @@ const App = () => {
               styleObj={darkMode ? darkStyleObj : lightStyleObj}
               globalEffectVar={globalEffectVar}
               setGlobalEffectVar={setGlobalEffectVar}
+              isAuthenticated={isAuthenticated}
             />
           </Route>
         </Switch>
